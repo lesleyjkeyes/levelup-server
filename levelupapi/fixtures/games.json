@@ -1,0 +1,26 @@
+[
+  {
+    "model": "levelupapi.game",
+    "pk": 1,
+    "fields": {
+        "game_type": 2,
+        "title": "Murder Mystery",
+        "maker": "Murders R Us",
+        "gamer": 1,
+        "skill_level": "Extreme",
+        "number_of_players": 10
+    }
+},
+  {
+      "model": "levelupapi.game",
+      "pk": 2,
+      "fields": {
+          "game_type": 1,
+          "title": "Very Cool Game",
+          "maker": "Cool Games",
+          "gamer": 1,
+          "skill_level": "Easy",
+          "number_of_players": 4
+      }
+  }
+]
