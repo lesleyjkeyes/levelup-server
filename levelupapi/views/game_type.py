@@ -10,9 +10,12 @@ class GameTypeView(ViewSet):
     """Level up game types view"""
 
     def retrieve(self, request, pk):
-        game_type = Game_type.objects.get(pk=pk)
-        serializer = GameTypeSerializer(game_type)
-        return Response(serializer.data)
+        try:
+            game_type = Game_type.objects.get(pk=pk)
+            serializer = GameTypeSerializer(game_type)
+            return Response(serializer.data)
+        except Game_type.DoesNotExist as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
 
     def list(self, request):
