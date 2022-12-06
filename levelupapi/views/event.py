@@ -79,8 +79,8 @@ class EventView(ViewSet):
     @action(methods=['post'], detail=True)
     def signup(self, request, pk):
         """Post request for a user to sign up for an event"""
-
-        gamer = Gamer.objects.get(id=request.data["id"])
+        
+        gamer = Gamer.objects.get(id=request.data)
         event = Event.objects.get(pk=pk)
         EventGamer.objects.create(
             gamer = gamer,
@@ -91,8 +91,9 @@ class EventView(ViewSet):
     @action(methods=['delete'], detail=True)
     def leave(self, request, pk):
         """Post request for a user to sign up for an event"""
-
-        gamer = Gamer.objects.get(id=request.data["id"])
+        print(pk)
+        print(request.data)
+        gamer = Gamer.objects.get(id=request.data)
         event = Event.objects.get(pk=pk)
         eventgamer = EventGamer.objects.get(
             gamer = gamer,
